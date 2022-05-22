@@ -1,0 +1,28 @@
+{
+  "version": "0.0.0",
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "concurrently": "^7.2.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "prettier": "^2.6.2",
+    "ts-loader": "^9.3.0",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.6.4",
+    "web-ext": "^6.8.0",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  },
+  "scripts": {
+    "watch": "webpack --watch --mode=development",
+    "extension:firefox": "web-ext run --source-dir ./build/",
+    "start:firefox": "concurrently npm:watch npm:extension:firefox",
+    "build": "webpack",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
