@@ -2,10 +2,13 @@
   "manifest_version": 2,
   "name": "Web Extension",
   "version": "0.0.0",
+  "browser_action": {
+    "default_popup": "index.html"
+  },
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["content.js"]
+      "js": ["jquery-3.6.0.min.js", "content.js"]
     }
   ]
 }

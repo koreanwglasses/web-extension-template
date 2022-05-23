@@ -6,8 +6,9 @@ const baseConfig: Configuration = {
   entry: {
     background: "./src/background/index.ts",
     content: "./src/content/index.ts",
-    popup: "./src/popup/index.ts",
+    popup: "./src/popup/index.tsx",
   },
+  externals: { jquery: "$" },
   module: {
     rules: [
       {
@@ -33,11 +34,14 @@ const baseConfig: Configuration = {
 const devConfig: Configuration = {
   ...baseConfig,
   mode: "development",
+  devtool: "source-map",
 };
 const prodConfig: Configuration = {
   ...baseConfig,
   mode: "production",
 };
 
-const config = process.env.NODE_ENV === "development" ? devConfig : prodConfig;
+const config = (env: any, argv: any) =>
+  argv.mode === "development" ? devConfig : prodConfig;
+
 export default config;
